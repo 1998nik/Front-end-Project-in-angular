@@ -1,0 +1,51 @@
+<div *ngIf="loading" class="text-center">
+    <strong>Loading...</strong>
+    <div class="spinner-grow text-info" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+<div *ngIf="tableloading" class="container">
+    <div class="m-3">
+        <div class="row">
+            <div class="col-lg-4">
+                <select name="" id="" class="form-control" [(ngModel)]="selectedCategory">
+                        <option *ngFor="let cat of categoryArr" [value]="cat">{{cat}}</option>
+                </select>
+            </div>
+            <div class="col-lg-4">
+               <!-- <h6 class="text-muted">Category :- {{selectedCategory}}</h6> -->
+            </div>
+            <div class="col-lg-4">
+                <a href="#" class="btn btn-warning" style="float: right;" [routerLink]="['/catwiseproduct']" 
+                      [queryParams]="{cat:selectedCategory}">Filter via Category
+                </a>
+            </div>
+        </div>
+    </div>
+    <table class="table table-info table-striped text-center">
+        <thead class="bg-dark text-white">
+            <th>#</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Details</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prod of arrProd;let i=index;">
+                <td scope="col">{{prod.id}}</td>
+                <td scope="col">{{prod.title | slice:0:20}}</td>
+                <td scope="col">{{prod.price | currency:'INR'}}</td>
+                <td scope="col">{{prod.category}}</td>
+                <td scope="col">{{prod.description | slice:0:30}}</td>
+                <td scope="col">
+                    <img [src]="prod.image" alt="" width="80px" height="50px" class="img-rounded">
+                </td>
+                <td>
+                    <a href="#" class="btn btn-info" [routerLink]="['/catwiseproduct',prod.id]" >Details</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

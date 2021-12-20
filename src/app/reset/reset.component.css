@@ -1,0 +1,26 @@
+.card{
+    border: none;
+    border-radius: 15px;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 5px 5px 5px 5px #dd3d15c5;
+    
+}
+
+.container{
+    margin-top: 100px;
+    margin-left: 450px;
+    
+}
+
+.body{
+    background-image: url("https://img.freepik.com/free-photo/modern-futuristic-sci-fi-background_35913-2152.jpg?size=626&ext=jpg");
+    background-size: cover;
+    height: 100vh;
+}
+
+.links{
+    color: blue;
+    text-decoration: none;
+    cursor: pointer;
+}

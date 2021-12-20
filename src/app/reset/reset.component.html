@@ -1,0 +1,56 @@
+<section class="body">
+    <div class="col d-flex justify-content-center">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="text-center">
+                            <h1><u>Reset Password</u></h1>
+                            <h6>Reset Your Password</h6>
+                        </div>
+                        <form [formGroup]="resetform" (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input formControlName="email" type="email" class="form-control" id="email"
+                                    aria-describedby="emailHelp" placeholder="Enter Email">
+                                <div class="text text-danger" *ngIf="!email?.valid && (email?.dirty ||email?.touched)">
+                                    <div [hidden]="!email?.errors?.required">
+                                        email is required
+                                    </div>
+                                    <div [hidden]="!email?.errors?.pattern">
+                                        invalid email id
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="otp">OTP</label>
+                                <input formControlName="otp" type="text" class="form-control" id="email"
+                                    aria-describedby="emailHelp" placeholder="Enter One Time Password">
+                                <div class="text text-danger" *ngIf="!otp?.valid && (otp?.dirty ||otp?.touched)">
+                                    <div [hidden]="!otp?.errors?.required">
+                                        otp is required
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="hashedPassword">Password</label>
+                                <input formControlName="password" type="password" class="form-control"
+                                    id="hashedPassword" aria-describedby="emailHelp" placeholder="Enter Password">
+                                    <div class="text text-danger"
+                                    *ngIf="!password?.valid && (password?.dirty ||password?.touched)">
+                                      <div [hidden]="!password?.errors?.required">
+                                        password is required
+                                      </div>
+                                    </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,30 @@
+<div *ngIf="loading" class="text-center">
+    <strong>Loading...</strong>
+    <div class="spinner-grow text-info" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+<div *ngIf="loadingCard" class="container">
+    <div class="row">
+        <!-- <h2 class="text-center text-white bg-secondary">Product Details - Category wise</h2> -->
+        <div class="col-lg-6 mb-4"  *ngFor="let prod of prodArr">
+            <div class="form-group">
+                <div class="card-deck text-center">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>{{prod.title | slice:0:15}}</h3>
+                        </div>
+                        <div class="card-body">
+                            <img [src]="prod.image" alt="" srcset="" width="200" height="200">
+                        </div>
+                        <div class="card-footer">
+                            <h3>&#8377;{{prod.price}}</h3>
+                            <p>{{prod.description | slice:0:30}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-info btn-lg" routerLink="/products">All Products</button>
+</div>
